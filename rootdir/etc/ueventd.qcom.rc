@@ -36,6 +36,7 @@
 /dev/ion                  0664   system     system
 /dev/rtc0                 0660   system     system
 /dev/smd0                 0660   system     system
+/dev/smdls0               0660   system     system
 /dev/smd4                 0660   system     system
 /dev/smd_cxm_qmi          0640   radio      radio
 /dev/smd5                 0660   system     system
@@ -125,11 +126,6 @@
 /dev/adsprpc-smd          0664   system     system
 /dev/system_health_monitor 0644  radio      system
 /dev/mdss_rotator         0664   system     system
-# wlan
-/dev/wcnss_wlan           0660   system     system
-/dev/wcnss_ctrl           0660   system     system
-/sys/devices/soc/a000000.qcom,wcnss-wlan/net/wlan0/queues/rx-* rps_cpus           0660   system     system
-/sys/devices/soc/a000000.qcom,wcnss-wlan/net/p2p0/queues/rx-* rps_cpus            0660   system     system
 /dev/msm_camera/*         0660   system     camera
 /dev/gemini/              0660   system     camera
 /dev/mercury0             0660   system     camera
@@ -231,12 +227,6 @@
 /dev/vm_bms               0660   system     system
 /dev/battery_data         0660   system     system
 
-# wlan
-/dev/wcnss_wlan           0660   system     system
-/dev/wcnss_ctrl           0660   system     system
-/sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlan0/queues/rx-* rps_cpus 0660 system system
-/sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/p2p0/queues/rx-* rps_cpus 0660 system system
-
 #nfc permissions
 /dev/nfc-nci              0660    nfc         nfc
 /dev/nq-nci               0660    nfc         nfc
@@ -265,7 +255,40 @@
 
 # Add device block for FRP
 /dev/block/platform/soc/7824900.sdhci/by-name/config    0600   system     system
-/dev/block/platform/soc/624000.ufshc/by-name/config     0600   system     system
 /dev/block/platform/soc/7464900.sdhci/by-name/frp       0600   system     system
 /dev/block/platform/soc/624000.ufshc/by-name/frp        0600   system     system
-/dev/block/platform/soc/1da4000.ufshc/by-name/frp       0600   system     system
+
+#Interactive Governor
+/sys/devices/system/cpu/cpu*	cpufreq/scaling_governor			0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/param_index			0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/use_sched_load		0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/use_migration_notif		0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/above_hispeed_delay		0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/go_hispeed_load		0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/timer_rate			0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/hispeed_freq		0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/io_is_busy			0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/target_loads		0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/min_sample_time		0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/max_freq_hysteresis		0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/scaling_min_freq			0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/fast_ramp_down 		0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/ignore_hispeed_on_notif	0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/mode 		0660  system system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/param_index	0660  system system
+
+# Mobicore
+/dev/mobicore				0600 	system		system
+/dev/mobicore-user			0666 	system		system
+/dev/t-base-tui				0660 	system		system
+
+# Google FRP solution
+/dev/block/platform/soc/624000.ufshc/by-name/persistent    0660    system    system
+/dev/block/platform/soc/7464900.sdhci/by-name/persistent    0660    system    system
+
+# Fingerprint Sensor
+/dev/vfsspi        0660   system     system
+/dev/esfp0        0660   system     system
+# Reactivation Lock
+/dev/block/platform/soc/624000.ufshc/by-name/steady    0660    system    system
+/dev/block/platform/soc/7464900.sdhci/by-name/steady    0660    system    system
