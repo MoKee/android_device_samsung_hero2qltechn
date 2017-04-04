@@ -28,7 +28,6 @@ TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 BOARD_VENDOR := samsung
 
 # Assertions
-TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
 TARGET_OTA_ASSERT_DEVICE := hero2qltechn,G9350,SM-G9350
 
 # Use Snapdragon LLVM, if available
