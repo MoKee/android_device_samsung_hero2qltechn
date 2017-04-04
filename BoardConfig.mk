@@ -21,9 +21,6 @@
 # definition file).
 #
 
-# Inherit from oppo-common
--include device/oppo/common/BoardConfigCommon.mk
-
 PLATFORM_PATH := device/samsung/hero2qltechn
 
 TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
