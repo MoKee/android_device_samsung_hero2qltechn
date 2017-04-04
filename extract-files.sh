@@ -20,18 +20,35 @@ set -e
 DEVICE=hero2qltechn
 VENDOR=samsung
 
-# Load extractutils and do some sanity checks
-MY_DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
-
-CM_ROOT="$MY_DIR"/../../..
-
-HELPER="$CM_ROOT"/vendor/cm/build/tools/extract_utils.sh
-if [ ! -f "$HELPER" ]; then
-    echo "Unable to find helper script at $HELPER"
-    exit 1
-fi
-. "$HELPER"
+function extract() {
+    for FILE in `egrep -v '(^#|^$)' $1`; do
+        OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
+        FILE=`echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g"`
+        DEST=${PARSING_ARRAY[1]}
+        if [ -z $DEST ]; then
+            DEST=$FILE
+        fi
+        DIR=`dirname $FILE`
+        if [ ! -d $2/$DIR ]; then
+            mkdir -p $2/$DIR
+        fi
+        if [ "$SRC" = "adb" ]; then
+            # Try CM target first
+            adb pull /system/$DEST $2/$DEST
+            # if file does not exist try OEM target
+            if [ "$?" != "0" ]; then
+                adb pull /system/$FILE $2/$DEST
+            fi
+        else
+            cp $SRC/system/$FILE $2/$DEST
+            # if file dot not exist try destination
+            if [ "$?" != "0" ]
+                then
+                cp $SRC/system/$DEST $2/$DEST
+            fi
+        fi
+    done
+}
 
 if [ $# -eq 0 ]; then
   SRC=adb
@@ -49,11 +66,9 @@ else
   fi
 fi
 
-# Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
+BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
+rm -rf $BASE/*
 
-extract "$MY_DIR"/proprietary-files-qc.txt "$SRC"
-extract "$MY_DIR"/proprietary-files-qc-perf.txt "$SRC"
-extract "$MY_DIR"/proprietary-files.txt "$SRC"
+extract ../../$VENDOR/$DEVICE/proprietary-files.txt $BASE
 
-"$MY_DIR"/setup-makefiles.sh
+./setup-makefiles.sh
