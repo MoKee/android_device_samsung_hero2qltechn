@@ -24,15 +24,15 @@
 # Inherit from oppo-common
 -include device/oppo/common/BoardConfigCommon.mk
 
-PLATFORM_PATH := device/oneplus/oneplus3
+PLATFORM_PATH := device/samsung/hero2qltechn
 
 TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
-BOARD_VENDOR := oneplus
+BOARD_VENDOR := samsung
 
 # Assertions
 TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
-TARGET_OTA_ASSERT_DEVICE := OnePlus3,oneplus3,OnePlus3T,oneplus3t
+TARGET_OTA_ASSERT_DEVICE := hero2qltechn,G9350,SM-G9350
 
 # Use Snapdragon LLVM, if available
 TARGET_USE_SDCLANG := true
@@ -72,8 +72,8 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/oneplus/msm8996
-TARGET_KERNEL_CONFIG := lineageos_oneplus3_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/msm8996
+TARGET_KERNEL_CONFIG := lineageos_hero2qltechn_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # QCOM hardware
@@ -166,8 +166,8 @@ USE_DEVICE_SPECIFIC_GPS := true
 
 # Init
 TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_oneplus3
-TARGET_RECOVERY_DEVICE_MODULES := libinit_oneplus3
+TARGET_INIT_VENDOR_LIB := libinit_hero2qltechn
+TARGET_RECOVERY_DEVICE_MODULES := libinit_hero2qltechn
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Keystore
@@ -226,4 +226,4 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # inherit from the proprietary version
--include vendor/oneplus/oneplus3/BoardConfigVendor.mk
+-include vendor/samsung/hero2qltechn/BoardConfigVendor.mk

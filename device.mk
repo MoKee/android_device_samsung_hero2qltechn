@@ -21,7 +21,7 @@
 # definition file).
 #
 
-$(call inherit-product-if-exists, vendor/oneplus/oneplus3/oneplus3-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/hero2qltechn/hero2qltechn-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -177,14 +177,9 @@ PRODUCT_PACKAGES += \
     qdcm_calib_data_samsung_s6e3fa3_1080p_cmd_mode_dsi_panel.xml \
     qdcm_calib_data_samsung_s6e3fa5_1080p_cmd_mode_dsi_panel.xml
 
-# Doze mode
-PRODUCT_PACKAGES += \
-    OneplusDoze
-
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
-    fingerprintd \
-    OneplusPocketMode
+    fingerprintd
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \

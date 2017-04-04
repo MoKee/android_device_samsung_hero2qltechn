@@ -19,8 +19,8 @@
 set -e
 
 # Required!
-DEVICE=oneplus3
-VENDOR=oneplus
+DEVICE=hero2qltechn
+VENDOR=samsung
 
 INITIAL_COPYRIGHT_YEAR=2016
 

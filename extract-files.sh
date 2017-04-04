@@ -17,8 +17,8 @@
 
 set -e
 
-DEVICE=oneplus3
-VENDOR=oneplus
+DEVICE=hero2qltechn
+VENDOR=samsung
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
