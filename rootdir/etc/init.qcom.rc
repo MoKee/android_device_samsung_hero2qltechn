@@ -114,16 +114,6 @@ on boot
     # rmt_storage
     chown system system /sys/kernel/debug/rmt_storage/status
 
-    # permissions for bluetooth.
-    setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
-    chown bluetooth net_bt_stack ro.bt.bdaddr_path
-    chown bluetooth net_bt_stack /dev/ttyHS0
-    chmod 0660 /dev/ttyHS0
-    chmod 0660 /sys/class/rfkill/rfkill0/state
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/device/extldo
-
     #DBMDx
     chmod 0660 /dev/dbmdx-1
     chown system audio /dev/dbmdx-1
@@ -1015,7 +1005,7 @@ on post-fs-data
     mkdir /data/firmware 0770 audioserver system
     chown audioserver system /data/firmware
 
-    # Don't touch this, use kernel default value 
+    # Don't touch this, use kernel default value
     # set aggressive read ahead for dm-0 and dm-1 during boot up
     #write /sys/block/dm-0/queue/read_ahead_kb 2048
     #write /sys/block/dm-1/queue/read_ahead_kb 2048
