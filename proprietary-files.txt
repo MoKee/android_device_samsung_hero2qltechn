@@ -51,7 +51,6 @@ etc/Headset_cal.acdb
 etc/General_cal.acdb
 etc/Speaker_cal.acdb
 etc/Hdmi_cal.acdb
-etc/Bluetooth_cal.acdb
 vendor/lib/libacdbrtac.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdb-fts.so

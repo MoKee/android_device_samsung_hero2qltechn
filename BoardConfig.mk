@@ -208,5 +208,8 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
+# Inherit board specific defines
+-include $(PLATFORM_PATH)/board/*.mk
+
 # inherit from the proprietary version
 -include vendor/samsung/hero2qltechn/BoardConfigVendor.mk
