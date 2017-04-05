@@ -117,6 +117,3 @@ ro.sys.sdcardfs=true
 
 # Timeservice
 persist.timed.enable=true
-
-# Wifi
-wifi.interface=wlan0
