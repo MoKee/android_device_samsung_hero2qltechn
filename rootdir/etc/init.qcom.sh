@@ -106,6 +106,8 @@ start_copying_prebuilt_qcril_db()
 baseband=`getprop ro.baseband`
 echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
 
+/system/bin/wifiloader
+ 
 case "$baseband" in
         "svlte2a")
         start bridgemgrd
