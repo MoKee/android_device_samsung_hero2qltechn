@@ -31,13 +31,17 @@
 #include <sys/types.h>
 
 #include <hardware/lights.h>
-#include <liblights/samsung_lights_helper.h>
-
-#include "samsung_lights.h"
+#include "include/samsung_lights.h"
 
 #define COLOR_MASK 0x00ffffff
 
 #define MAX_INPUT_BRIGHTNESS 255
+
+extern int set_cur_button_brightness(const int brightness);
+extern int get_cur_panel_brightness();
+extern int get_max_panel_brightness();
+extern int set_cur_panel_brightness(const int brightness);
+extern int set_max_panel_brightness(const int brightness);
 
 enum component_mask_t {
     COMPONENT_BACKLIGHT = 0x1,
