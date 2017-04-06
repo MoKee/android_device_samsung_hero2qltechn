@@ -132,6 +132,9 @@ TARGET_INIT_VENDOR_LIB := libinit_hero2qltechn
 TARGET_RECOVERY_DEVICE_MODULES := libinit_hero2qltechn
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
+# LIGHTS
+TARGET_PROVIDES_LIBLIGHT := true
+
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
 
