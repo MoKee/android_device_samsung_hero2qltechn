@@ -222,6 +222,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     com.nxp.nfc.nq \
+    libnqnfc-nci \
+    libp61-jcop-kit \
     nfc_nci.nqx.default \
     NQNfcNci \
     nqnfcee_access.xml \
