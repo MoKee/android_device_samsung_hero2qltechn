@@ -168,6 +168,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 include device/qcom/sepolicy/sepolicy.mk
 
 # Sensors
+TARGET_NO_SENSOR_PERMISSION_CHECK := true
 USE_SENSOR_MULTI_HAL := true
 
 # Timeservice
