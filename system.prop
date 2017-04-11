@@ -117,3 +117,10 @@ ro.sys.sdcardfs=true
 
 # Timeservice
 persist.timed.enable=true
+
+# Build Info
+ro.product.model=SM-G9350
+ro.build.product=hero2qltechn
+ro.product.device=hero2qltechn
+ro.build.description=hero2qltezc-user 7.0 NRD90M G9350ZCU2BQC1 release-keys
+ro.build.fingerprint=samsung/hero2qltezc/hero2qltechn:7.0/NRD90M/G9350ZCU2BQC1:user/release-keys

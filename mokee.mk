@@ -21,9 +21,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/samsung/hero2qltechn/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/mk/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_hero2qltechn
+PRODUCT_NAME := mk_hero2qltechn
 PRODUCT_DEVICE := hero2qltechn
 PRODUCT_MANUFACTURER := Samsung
 PRODUCT_BRAND := samsung
@@ -31,3 +31,6 @@ PRODUCT_BRAND := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
 TARGET_VENDOR := Samsung
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.mk.maintainer=nian
